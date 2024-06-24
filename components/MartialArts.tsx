@@ -66,7 +66,7 @@ export function MartialArts() {
   ];
 
   return (
-    <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full  my-40">
+    <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-4xl mx-auto w-full  my-40">
       <Tabs tabs={tabs} />
     </div>
   );
@@ -74,16 +74,17 @@ export function MartialArts() {
 
 const SectionContent: React.FC<TabContentProps> = ({ text, imgSrc }) => {
   return (
-    <div className="w-full overflow-hidden h-full rounded-2xl p-4 md:p-10 text-lg md:text-4xl font-bold text-whiteText  bg-black items-center flex">
-      <p className="">{text}</p>
-      <Image
-        src={imgSrc}
-        alt="background image"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
-        className="opacity-15 rounded-2xl"
-      />
-    </div>
+    <div className=" overflow-hidden h-full rounded-2xl p-4 md:p-10 text-lg md:text-4xl font-bold text-whiteText bg-black items-center flex">
+  <p className="">{text}</p>
+  <Image
+    src={imgSrc}
+    alt="background image"
+    layout="fill"
+    objectFit="cover"
+    objectPosition="center"
+    className="opacity-15 rounded-2xl"
+  />
+</div> 
+
   );
 };

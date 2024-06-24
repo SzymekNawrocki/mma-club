@@ -1,5 +1,4 @@
-import { cn } from "@/utils/cn";
-
+import { cn } from "@/utils/utils";
 
 export const HoverEffect = ({
   items,
@@ -14,15 +13,12 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
-        className
+        "grid grid-cols-1 py-10  md:grid-cols-2  lg:grid-cols-3",
+        className,
       )}
     >
       {items.map((item, idx) => (
-        <div
-          key={idx}
-          className="relative group block p-2 h-full w-full"
-        >
+        <div key={idx} className="group relative block h-full w-full p-2">
           <Card>
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
@@ -43,8 +39,8 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 text-center overflow-hidden bg-n border border-emerald300 relative ",
-        className
+        "bg-n border-emerald300 relative h-full w-full overflow-hidden rounded-2xl border p-4 text-center ",
+        className,
       )}
     >
       <div className="relative ">
@@ -62,7 +58,9 @@ export const CardTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h4 className={cn("text-whiteText font-bold tracking-wide mt-2", className)}>
+    <h4
+      className={cn("text-whiteText mt-2 font-bold tracking-wide", className)}
+    >
       {children}
     </h4>
   );
@@ -78,8 +76,8 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-4 text-whiteText tracking-wide leading-relaxed text-sm",
-        className
+        "text-whiteText mt-4 text-sm leading-relaxed tracking-wide",
+        className,
       )}
     >
       {children}

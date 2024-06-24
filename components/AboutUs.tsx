@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="bg-background p-6 rounded-lg text-white flex flex-col md:flex-row items-center md:items-start justify-between">
-      <div className="md:w-1/2 p-4">
+    <div className="bg-background p-6 rounded-lg text-white flex flex-col md:flex-row items-center md:items-start justify-between mb-11">
+      <div className="md:w-1/2 p-8">
         <p className="text-lg mb-4">
           Jesteśmy zespołem pasjonatów sztuk walki, z wieloletnim doświadczeniem w treningach BJJ, MMA i Muay Thai. Naszym celem jest promowanie zdrowego stylu życia i dostarczanie najlepszych porad dotyczących treningów oraz wyboru sprzętu.
         </p>

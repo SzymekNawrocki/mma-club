@@ -69,7 +69,6 @@ const Navbar = () => {
           <NavLink href="/" active={pathname === '/'}>Home</NavLink>
           <NavLink href="/about" active={pathname === '/about'}>O Nas</NavLink>
           <NavLink href="/schedule" active={pathname === '/schedule'}>Grafik</NavLink>
-          <NavLink href="/blog" active={pathname === '/blog'}>Blog</NavLink>
           <NavLink href="/contact" active={pathname === '/contact'}>Kontakt</NavLink>
         </div>
       </div>
@@ -90,7 +89,6 @@ const Navbar = () => {
             <NavLink href="/" active={pathname === '/'} onClick={toggleNavbar}>Home</NavLink>
             <NavLink href="/about" active={pathname === '/about'} onClick={toggleNavbar}>O Nas</NavLink>
             <NavLink href="/schedule" active={pathname === '/schedule'} onClick={toggleNavbar}>Grafik</NavLink>
-            <NavLink href="/blog" active={pathname === '/blog'} onClick={toggleNavbar}>Blog</NavLink>
             <NavLink href="/contact" active={pathname === '/contact'} onClick={toggleNavbar}>Kontakt</NavLink>
           </motion.div>
         )}

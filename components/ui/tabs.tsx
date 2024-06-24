@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/utils/cn";
+import { cn } from "@/utils/utils";
 
 type Tab = {
   title: string;
@@ -40,8 +40,8 @@ export const Tabs = ({
     <>
       <div
         className={cn(
-          "text-center flex flex-wrap justify-center mb-14",
-          containerClassName
+          "mb-14 flex flex-wrap justify-center text-center",
+          containerClassName,
         )}
       >
         {propTabs.map((tab, idx) => (
@@ -53,8 +53,8 @@ export const Tabs = ({
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
             className={cn(
-              "relative flex items-center justify-center px-4 py-2 rounded-full transition-transform transform hover:scale-105 focus:outline-none focus:ring focus:ring-emerald300 focus:ring-opacity-50", 
-              tabClassName
+              "focus:ring-emerald300 ml2 relative flex transform items-center justify-center rounded-full px-4 py-2 transition-transform hover:scale-105 focus:outline-none focus:ring focus:ring-opacity-50",
+              tabClassName,
             )}
             style={{
               transformStyle: "preserve-3d",
@@ -65,8 +65,8 @@ export const Tabs = ({
                 layoutId="clickedbutton"
                 transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
                 className={cn(
-                  "absolute inset-0 bg-emerald500 rounded-full",
-                  activeTabClassName
+                  "bg-emerald500 absolute inset-0 rounded-full",
+                  activeTabClassName,
                 )}
               />
             )}
@@ -103,7 +103,7 @@ export const FadeInDiv = ({
     return tab.value === tabs[0].value;
   };
   return (
-    <div className="relative w-full h-full">
+    <div className="relative h-full w-full">
       {tabs.map((tab, idx) => (
         <motion.div
           key={tab.value}
@@ -117,7 +117,7 @@ export const FadeInDiv = ({
           animate={{
             y: isActive(tab) ? [0, 40, 0] : 0,
           }}
-          className={cn("w-full h-full absolute top-0 left-0", className)}
+          className={cn("absolute left-0 top-0 h-full w-full", className)}
         >
           {tab.content}
         </motion.div>

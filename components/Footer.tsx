@@ -9,15 +9,15 @@ const Footer = () => {
         <div className="mb-4 md:mb-0 flex flex-col items-center">
           <span className="text-sm text-blackText mt-2 font-bold">szymonnawrocki.dev © 2024 </span>
         </div>
-        <div className="flex space-x-4 mt-4 md:mt-0">
+        <div className="flex space-x-4 mt-4 md:mt-0 gap-2">
           <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
      
-              <FontAwesomeIcon icon={faFacebook} className="text-xl text-blackText hover:text-white" />
+              <FontAwesomeIcon icon={faFacebook} className="text-3xl text-blue-600 hover:text-white" />
      
           </Link>
           <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
         
-              <FontAwesomeIcon icon={faInstagram} className="text-xl text-blackText hover:text-white" />
+              <FontAwesomeIcon icon={faInstagram} className="text-3xl text-pink-500 hover:text-white" />
             
           </Link>
         </div>

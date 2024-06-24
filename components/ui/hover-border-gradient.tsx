@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import { motion } from "framer-motion";
-import { cn } from "@/utils/cn";
+import { cn } from "@/utils/utils";
 
 type Direction = "TOP" | "LEFT" | "BOTTOM" | "RIGHT";
 
@@ -38,13 +38,14 @@ export function HoverBorderGradient({
   const movingMap: Record<Direction, string> = {
     TOP: "radial-gradient(20.7% 50% at 50% 0%, hsl(0, 0%, 70%) 0%, rgba(255, 255, 255, 0) 100%)",
     LEFT: "radial-gradient(16.6% 43.1% at 0% 50%, hsl(0, 0%, 70%) 0%, rgba(255, 255, 255, 0) 100%)",
-    BOTTOM: "radial-gradient(20.7% 50% at 50% 100%, hsl(0, 0%, 70%) 0%, rgba(255, 255, 255, 0) 100%)",
-    RIGHT: "radial-gradient(16.2% 41.199999999999996% at 100% 50%, hsl(0, 0%, 70%) 0%, rgba(255, 255, 255, 0) 100%)",
+    BOTTOM:
+      "radial-gradient(20.7% 50% at 50% 100%, hsl(0, 0%, 70%) 0%, rgba(255, 255, 255, 0) 100%)",
+    RIGHT:
+      "radial-gradient(16.2% 41.199999999999996% at 100% 50%, hsl(0, 0%, 70%) 0%, rgba(255, 255, 255, 0) 100%)",
   };
-  
+
   const highlight =
     "radial-gradient(75% 181.15942028985506% at 50% 50%, hsl(240, 100%, 50%) 0%, rgba(255, 255, 255, 0) 100%)";
-  
 
   useEffect(() => {
     if (!hovered) {
@@ -62,22 +63,22 @@ export function HoverBorderGradient({
       }}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        "relative flex rounded-full border-gray border-2 content-center items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit",
-        containerClassName
+        "border-gray relative flex h-min w-fit flex-col flex-nowrap content-center items-center justify-center gap-10 overflow-visible rounded-full border-2 decoration-clone p-px",
+        containerClassName,
       )}
       {...props}
     >
       <div
         className={cn(
-          "w-auto z-10 bg-emerald500 px-4 py-2 rounded-[inherit]",
-          className
+          "bg-emerald500 z-10 w-auto rounded-[inherit] px-4 py-2",
+          className,
         )}
       >
         {children}
       </div>
       <motion.div
         className={cn(
-          "flex-none inset-0 overflow-hidden absolute z-0 rounded-[inherit]"
+          "absolute inset-0 z-0 flex-none overflow-hidden rounded-[inherit]",
         )}
         style={{
           filter: "blur(2px)",
@@ -93,7 +94,7 @@ export function HoverBorderGradient({
         }}
         transition={{ ease: "linear", duration: duration ?? 1 }}
       />
-      <div className="bg-emerald300 absolute z-1 flex-none inset-[2px] rounded-[100px]" />
+      <div className="bg-emerald300 z-1 absolute inset-[2px] flex-none rounded-[100px]" />
     </Tag>
   );
 }
