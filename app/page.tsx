@@ -45,6 +45,5 @@ export default function Home() {
     </HoverBorderGradient>
   </Link>
 </div>
-
   );
 }

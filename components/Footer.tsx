@@ -11,14 +11,10 @@ const Footer = () => {
         </div>
         <div className="flex space-x-4 mt-4 md:mt-0 gap-2">
           <Link href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-     
               <FontAwesomeIcon icon={faFacebook} className="text-3xl text-blue-600 hover:text-white" />
-     
           </Link>
           <Link href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-        
-              <FontAwesomeIcon icon={faInstagram} className="text-3xl text-pink-500 hover:text-white" />
-            
+              <FontAwesomeIcon icon={faInstagram} className="text-3xl text-pink-500 hover:text-white" /> 
           </Link>
         </div>
       </div>

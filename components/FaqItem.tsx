@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-
 interface FAQItemProps {
   question: string;
   answer: string;

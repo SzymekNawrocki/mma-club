@@ -4,8 +4,6 @@ import { HoverEffect } from "@/components/ui/card-hover-effect";
 import BeginnersGuide from "@/components/BeginnersGuide";
 import { PageTitle } from "@/components/PageTitle";
 
-
-
 export default function Schedule () {
   return (
     <div className="text-whiteText mx-auto max-w-4xl px-4 md:px-0 py-8"> 

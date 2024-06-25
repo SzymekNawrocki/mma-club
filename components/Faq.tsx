@@ -1,8 +1,6 @@
 import React from 'react';
 import FAQItem from '@/components/FaqItem';
 
-
-
 const Faq = () => {
   const faqData = [
     {

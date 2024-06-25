@@ -13,11 +13,7 @@ export default function ContactPage() {
       <PageTitle>Kontakt</PageTitle>
     </div>
     <div className="text-whiteText flex flex-col items-center w-full space-y-8">
-      <div className="w-full max-w-4xl">
-        <ContactForm />
-      </div>
-      <div className="w-full max-w-4xl text-center">
-        <p className="max-w-lg mx-auto text-2xl mt-11">
+        <p className="max-w-lg mx-auto text-2xl text-center mb-4">
           W razie pytań chętnie pomożemy! Skontaktuj się z nami przez media społecznościowe lub napisz na{" "} 
           <a
             href="mailto:justfight@gmail.com"
@@ -26,13 +22,11 @@ export default function ContactPage() {
             justfight@gmail.com
           </a>
         </p>
+      <div className="w-full max-w-4xl">
+        <ContactForm />
+      </div>
+      <div className="w-full max-w-4xl text-center">
         <div className="flex justify-center space-x-4  text-3xl mt-8">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faFacebook} className="text-blue-600 hover:text-neutral50 transition-colors duration-300" />
-          </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} className="text-pink-500 hover:text-neutral50 transition-colors duration-300" />
-          </a>
         </div>
       </div>
     </div>
