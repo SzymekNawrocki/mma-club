@@ -1,49 +1,69 @@
 "use client";
-import { useRef } from "react";
-import { ImagesSlider } from "@/components/ui/images-slider";
 import { motion } from "framer-motion";
-import { MartialArts } from "@/components/MartialArts";
-import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
-import Link from 'next/link';
-
-const images = [
-  "https://cdn.pixabay.com/photo/2023/07/06/21/35/bjj-8111393_960_720.jpg",
-  "https://cdn.pixabay.com/photo/2016/08/07/08/49/mma-1575852_1280.jpg",
-  "https://cdn.pixabay.com/photo/2016/08/07/08/50/mma-1575857_1280.jpg",
-  "https://cdn.pixabay.com/photo/2016/12/21/19/22/boxer-1923694_1280.jpg"
-];
+import React from "react";
+import { ImagesSlider } from "@/components/ui/images-slider";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import Image from 'next/image'
+import { LandingText } from '@/components/LandingText'
+import Link from 'next/link'
 
 export default function Home() {
-  const martialArtsRef = useRef<HTMLDivElement>(null);
-
-  const scrollToMartialArts = () => {
-    if (martialArtsRef.current) {
-      martialArtsRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const images = [
+    "https://cdn.pixabay.com/photo/2023/07/06/21/35/bjj-8111390_1280.jpg",
+    "https://cdn.pixabay.com/photo/2023/07/26/16/59/men-8151667_1280.jpg",
+    "https://cdn.pixabay.com/photo/2023/07/06/21/35/bjj-8111393_1280.jpg",
+  ];
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center text-white">
-  <ImagesSlider className=" h-screen" images={images}>
-    <motion.div
-      initial={{ opacity: 0, y: -80 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="z-50 flex flex-col justify-center items-center"
-    >
-      <motion.p className="font-bold text-base lg:text-xl text-center text-white w-1/2 py-7">
-        Witamy na stronie klubu sztuk walki i centrum treningu funkcjonalnego Just Fight.
-      </motion.p>
-      <HoverBorderGradient onClick={scrollToMartialArts}>Co trenujemy?</HoverBorderGradient>
-    </motion.div>
-  </ImagesSlider>
-  <h1 ref={martialArtsRef}></h1>
-  <MartialArts />
-  <Link className="py-11 mb-32" href="/about">
-    <HoverBorderGradient>
-      Dowiedz się więcej o nas!
-    </HoverBorderGradient>
-  </Link>
-</div>
+    <div className="relative h-screen overflow-hidden">
+      <ImagesSlider className="absolute inset-0 z-0" images={images} />
+      <div className="relative z-10 flex flex-col justify-center items-center h-full w-full">
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: -80,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
+          className="flex flex-col justify-center items-center"
+        >
+          <LandingText/>
+  <div className="py-4">
+            <Card>
+              <CardHeader>
+              <Image
+          src="/Logo.png"
+          alt="Plan zajęć"
+          width={150}
+          height={100}
+          className="rounded-full justify-center items-center mb-5"
+        />
+            <Button>
+                  <Link href="/sign-in">Zaloguj się</Link>
+            </Button>
+            <Button>
+              <Link href="/sign-up">Zarejestruj się</Link></Button>
+            <Button>
+                <Link href="/dashboard">Przeglądaj stronę</Link>
+            </Button>
+              </CardHeader>
+            </Card>
+          </div>
+        </motion.div>
+      </div>
+    </div>
   );
 }

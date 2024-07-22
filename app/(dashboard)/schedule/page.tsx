@@ -1,8 +1,11 @@
 'use client'
 import Image from "next/image";
-import { HoverEffect } from "@/components/ui/card-hover-effect";
-import BeginnersGuide from "@/components/BeginnersGuide";
 import { PageTitle } from "@/components/PageTitle";
+import { Guide } from "@/components/Guide";
+import {  SectionTitle  } from "@/components/SectionTitle"
+import MMAIcons from "@/components/MixedMartialArts";
+import { Card, CardHeader } from "@/components/ui/card";
+import Pricing from "@/components/Pricing";
 
 export default function Schedule () {
   return (
@@ -17,11 +20,17 @@ export default function Schedule () {
           height={853}
           className="mb-32 mt-11 rounded-2xl "
         />
-        <h1 className="text-center font-bold text-4xl">Cennik</h1>
-      <HoverEffect items={projects} />
-      </div>
-    </div>
-      <BeginnersGuide/>
+        <SectionTitle>Co powinieneś mieć na pierwszy trening</SectionTitle>
+      <Card>
+    <CardHeader>
+
+        <MMAIcons/>
+    </CardHeader>
+      </Card>
+          </div>
+        </div>
+      <SectionTitle>Cennik</SectionTitle>
+      <Pricing/>
     </div>
 
   );

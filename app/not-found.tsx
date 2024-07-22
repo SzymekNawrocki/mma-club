@@ -10,7 +10,7 @@ export default function NotFound() {
         <p className="mb-8 text-xl font-bold text-primary md:text-2xl lg:text-3xl text-whiteText">
           Nie znaleziono takiej strony...
         </p>
-        <Link href="/" className="underline lg:text-lg text-whiteText">
+        <Link href="/dashboard" className="underline lg:text-lg text-whiteText">
           Powrót do strony głównej
         </Link>
       </div>

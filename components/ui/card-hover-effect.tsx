@@ -1,4 +1,8 @@
-import { cn } from "@/utils/utils";
+'use client'
+import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
 
 export const HoverEffect = ({
   items,
@@ -7,23 +11,50 @@ export const HoverEffect = ({
   items: {
     title: string;
     description: string;
+    link: string;
+    backgroundImage: string;  // Added backgroundImage property
   }[];
   className?: string;
 }) => {
+  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <div
       className={cn(
-        "grid grid-cols-1 py-10  md:grid-cols-2  lg:grid-cols-3",
-        className,
+        "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-10",
+        className
       )}
     >
       {items.map((item, idx) => (
-        <div key={idx} className="group relative block h-full w-full p-2">
-          <Card>
+        <Link
+          href={item?.link}
+          key={item?.link}
+          className="relative group block p-2 h-full w-full"
+          onMouseEnter={() => setHoveredIndex(idx)}
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          <AnimatePresence>
+            {hoveredIndex === idx && (
+              <motion.span
+                className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block rounded-3xl"
+                layoutId="hoverBackground"
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { duration: 0.15 },
+                }}
+                exit={{
+                  opacity: 0,
+                  transition: { duration: 0.15, delay: 0.2 },
+                }}
+              />
+            )}
+          </AnimatePresence>
+          <Card backgroundImage={item.backgroundImage}>  {/* Pass backgroundImage to Card */}
             <CardTitle>{item.title}</CardTitle>
             <CardDescription>{item.description}</CardDescription>
           </Card>
-        </div>
+        </Link>
       ))}
     </div>
   );
@@ -32,18 +63,26 @@ export const HoverEffect = ({
 export const Card = ({
   className,
   children,
+  backgroundImage,  // Accept backgroundImage prop
 }: {
   className?: string;
   children: React.ReactNode;
+  backgroundImage: string;  // Define backgroundImage type
 }) => {
   return (
     <div
       className={cn(
-        "bg-n border-emerald300 relative h-full w-full overflow-hidden rounded-2xl border p-4 text-center ",
-        className,
+        "rounded-2xl h-full w-full p-4 overflow-hidden relative z-20",
+        className
       )}
+      style={{
+        backgroundImage: `url(${backgroundImage})`,  // Set background image
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
-      <div className="relative ">
+      <div className="absolute inset-0 bg-black opacity-50"></div> {/* Dark overlay */}
+      <div className="relative z-50">
         <div className="p-4">{children}</div>
       </div>
     </div>
@@ -58,9 +97,7 @@ export const CardTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h4
-      className={cn("text-whiteText mt-2 font-bold tracking-wide", className)}
-    >
+    <h4 className={cn("text-zinc-100 font-bold tracking-wide mt-4", className)}>
       {children}
     </h4>
   );
@@ -76,8 +113,8 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "text-whiteText mt-4 text-sm leading-relaxed tracking-wide",
-        className,
+        "mt-8 text-zinc-400 tracking-wide leading-relaxed text-sm",
+        className
       )}
     >
       {children}

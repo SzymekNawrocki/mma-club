@@ -1,8 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['cdn.pixabay.com',"www.datocms-assets.com"]
-    }
-};
+      dangerouslyAllowSVG: true,
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'media.graphassets.com'
+        },
+       ],
+             domains: ['cdn.pixabay.com','eu-central-1-shared-euc1-02.cdn.hygraph.com']
+          }
+         
+        };
+
 
 export default nextConfig;
