@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
 interface BlogPost {
   title: string;
@@ -53,8 +54,8 @@ async function getBlogPost(slug: string) {
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const post: BlogPost = await getBlogPost(params.slug);
   return (
-    <div className="m-12">
-      <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
+    <div className="m-12 text-center py-8">
+      <h1 className="text-5xl font-bold mb-4 mt-11">{post.title}</h1>
       <p className="text-lg mb-8">{post.body.text}</p>
       {post.image1?.url && (
         <div className="mb-8">
@@ -72,9 +73,12 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         </div>
       )}
       <p>
-        <Link href="/blog" className="underline">
-          Back to blog
+        <Button>
+
+        <Link href="/blog">
+          Wróć do Bloga
         </Link>
+        </Button>
       </p>
     </div>
   );

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { PageTitle } from '@/components/PageTitle';
-
+import { Card, CardHeader } from '@/components/ui/card'
 interface BlogPost {
   title: string;
   slug: string;
@@ -31,12 +31,16 @@ export default async function Blog() {
   return (
     <div className="m-12 py-8">
       <PageTitle>Blog</PageTitle>
-      <ul>
+      <ul className="space-y-4">
         {posts.map((post, index) => (
           <li key={index}>
-            <Link href={`/blog/${post.slug}`} className="underline">
-              {post.title}
-            </Link>
+            <Card className="mt-11 hover:bg-accent transition duration-200 text-center">
+              <CardHeader>
+                <Link href={`/blog/${post.slug}`}>
+                    {post.title}
+                </Link>
+              </CardHeader>
+            </Card>
           </li>
         ))}
       </ul>

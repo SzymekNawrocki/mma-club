@@ -1,9 +1,7 @@
 import Fighters from "@/components/Fighters"
-import Trainers from "@/components/Trainers"
 import { PageTitle } from "@/components/PageTitle"
-import { Photos } from "@/components/Photos"
 import TeamComponent from "@/components/TeamComponent"
-import { SectionTitle } from "@/components/SectionTitle"
+
 
 export default async function TrainerModelsPage() {
   
@@ -18,6 +16,5 @@ export default async function TrainerModelsPage() {
   <div className="w-full max-w-4xl mb-11 py-8">
   </div>
       </div>
-      <Fighters/>
     </div>
   )}
