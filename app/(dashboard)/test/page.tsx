@@ -2,23 +2,23 @@ import Link from "next/link";
 import Image from 'next/image';
 import { Card, CardHeader } from '@/components/ui/card';
 
-interface Trainer {
+interface Fighter {
   title: string;
   description: string;
   image: {
     url: string;
-  } 
+  }; 
 }
 
-async function getTrainers() {
+async function getFighters() {
   const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT as string, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      query: `query Trainers {
-                trainers {
+      query: `query Fighters {
+                fighters {
                   title 
                   description
                   image {
@@ -29,23 +29,24 @@ async function getTrainers() {
     }),
   });
   const json = await response.json();
-  return json.data.trainers;
+  return json.data.fighters;
 }
 
-export default async function TrainersSection() {
-  const trainers: Trainer[] = await getTrainers();
+export default async function Test() {
+  const fighters: Fighter[] = await getFighters();
+
   return (
     <div className="mt-12 py-12">
-      {trainers.map((trainer: Trainer, index: number) => (
+      {fighters.map((fighter: Fighter, index: number) => (
         <div key={index}>
         <div className="py-4">
           <Card>
             <CardHeader>
-          <h1>{trainer.title}</h1>
-          <p>{trainer.description}</p>
-          <Image 
-          src={trainer.image?.url}
-          alt={trainer.title}
+          <h1>{fighter.title}</h1>
+          <p>{fighter.description}</p>
+          <Image
+          src={fighter.image?.url}
+          alt={fighter.title}
           width={300}
           height={300}
           />

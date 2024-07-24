@@ -31,7 +31,7 @@ const Popup = dynamic(() => import('react-leaflet').then(mod => mod.Popup), {
 });
 
 async function getPlaces() {
-  const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT, {
+  const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT as string, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

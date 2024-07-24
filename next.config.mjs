@@ -8,7 +8,7 @@ const nextConfig = {
           hostname: 'media.graphassets.com'
         },
        ],
-             domains: ['cdn.pixabay.com','eu-central-1-shared-euc1-02.cdn.hygraph.com']
+             domains: ['cdn.pixabay.com','eu-central-1-shared-euc1-02.graphassets.com']
           }
          
         };

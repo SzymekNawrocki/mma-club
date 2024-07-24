@@ -1,11 +1,10 @@
-import Fighters from '@/components/FightersComponent'
-import { PageTitle } from '@/components/PageTitle'
+import FightersSection from '@/components/FightersComponent'
 
-export default async function Fighter () {
+
+export default function TeamFighters() {
   return (
-    <div className='py-11 mt-11 text-center'>
-      <h1>Zawodnicy</h1>
-    <Fighters/>
-    </div>
+    <div>
+      <FightersSection/>
+      </div>
   )
 }

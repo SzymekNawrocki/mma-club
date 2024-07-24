@@ -1,16 +1,17 @@
 import Link from "next/link";
-import Image from 'next/image'
+import Image from 'next/image';
+import { Card, CardHeader } from '@/components/ui/card';
 
 interface Fighter {
   title: string;
   description: string;
   image: {
     url: string;
-  } | null;
+  }; 
 }
 
 async function getFighters() {
-  const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT, {
+  const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT as string, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -30,18 +31,30 @@ async function getFighters() {
   const json = await response.json();
   return json.data.fighters;
 }
-export default async function Home() {
 
+export default async function FighersSection() {
   const fighters: Fighter[] = await getFighters();
 
   return (
-    <div className="m-12">
-    {fighters.map((fighter, index) => (
-      <div key={index}>
-        <h1>{fighter.title}</h1>
-        <p>{fighter.description}</p>
-      </div>
-    ))}
-  </div>
+    <div className="mt-12 py-12">
+      {fighters.map((fighter: Fighter, index: number) => (
+        <div key={index}>
+        <div className="py-4">
+          <Card>
+            <CardHeader>
+          <h1>{fighter.title}</h1>
+          <p>{fighter.description}</p>
+          <Image
+          src={fighter.image?.url}
+          alt={fighter.title}
+          width={300}
+          height={300}
+          />
+            </CardHeader>
+          </Card>
+        </div>
+        </div>
+      ))}
+    </div>
   );
 }

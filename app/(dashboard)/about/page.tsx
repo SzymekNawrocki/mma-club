@@ -1,4 +1,3 @@
-import Fighters from "@/components/Fighters"
 import { PageTitle } from "@/components/PageTitle"
 import TeamComponent from "@/components/TeamComponent"
 
