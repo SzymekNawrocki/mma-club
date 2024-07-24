@@ -1,4 +1,4 @@
-import Fighters from '@/components/Fighters'
+import Fighters from '@/components/FightersComponent'
 import { PageTitle } from '@/components/PageTitle'
 
 export default async function Fighter () {
