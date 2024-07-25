@@ -7,7 +7,7 @@ interface BlogPost {
 }
 
 async function getBlogPosts() {
-  const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT, {
+  const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT as string, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
