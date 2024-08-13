@@ -1,6 +1,5 @@
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import Image from 'next/image'
-import { DashboardMenu } from '@/components/DashboardMenu'
 import { PageTitle } from "@/components/PageTitle";
 import AboutUs from "@/components/AboutUs";
 import { SectionTitle } from "@/components/SectionTitle";
