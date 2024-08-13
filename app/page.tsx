@@ -24,7 +24,10 @@ export default function Home() {
 
   return (
     <div className="relative h-screen overflow-hidden">
-      <ImagesSlider className="absolute inset-0 z-0" images={images} />
+      <ImagesSlider className="absolute inset-0 z-0" images={images}>
+    <p className="mt-2">Enjoy the slideshow</p>
+  
+</ImagesSlider>
       <div className="relative z-10 flex flex-col justify-center items-center h-full w-full">
         <motion.div
           initial={{
