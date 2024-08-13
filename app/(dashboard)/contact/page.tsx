@@ -18,7 +18,7 @@ export default function ContactPage() {
       </div>
     </div>
       <Form />
-    <div className="w-full max-w-4xl">
+    <div className="w-full">
       <h1 className="font-bold text-3xl text-whiteText text-center mt-32 mb-16">Najczęściej zadawane przez was pytania</h1>
     
       <Questions />
