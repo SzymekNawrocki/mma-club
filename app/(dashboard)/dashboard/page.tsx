@@ -11,10 +11,7 @@ export default function Home() {
     <div className="h-screen mt-10 py-8">
     <PageTitle>O Nas</PageTitle>
     <AboutUs />
-      <Place/>
-    <div>
-      <SectionTitle>Gdzie możesz nas znaleźć?</SectionTitle>
-    </div>
+         
   </div>
   );
 }

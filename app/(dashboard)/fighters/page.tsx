@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from 'next/image';
 import { Card, CardHeader } from '@/components/ui/card';
+import { PageTitle } from "@/components/PageTitle";
 
 interface Fighter {
   title: string;
@@ -36,23 +37,26 @@ export default async function Fighters() {
   const fighters: Fighter[] = await getFighters();
 
   return (
-    <div className="mt-12 py-12">
+    <div className="mt-12 py-12 flex flex-col items-center">
+      <PageTitle>Zawodnicy</PageTitle>
       {fighters.map((fighter: Fighter, index: number) => (
-        <div key={index}>
-        <div className="py-4">
-          <Card>
-            <CardHeader>
-          <h1>{fighter.title}</h1>
-          <p>{fighter.description}</p>
-          <Image
-          src={fighter.image?.url}
-          alt={fighter.title}
-          width={300}
-          height={300}
-          />
+        <div key={index} className="w-full max-w-md mb-8">
+          <Card className="shadow-lg rounded-lg mt-4">
+            <CardHeader className="p-6">
+              <h1 className="text-2xl font-semibold mb-4 text-center">{fighter.title}</h1>
+              <p className="text-gray-600 mb-4 text-center">{fighter.description}</p>
+              <div className="flex justify-center">
+                <div className="w-72 h-72 relative">
+                  <Image
+                    src={fighter.image?.url}
+                    alt={fighter.title}
+                    fill
+                    className="object-cover rounded-lg"
+                  />
+                </div>
+              </div>
             </CardHeader>
           </Card>
-        </div>
         </div>
       ))}
     </div>

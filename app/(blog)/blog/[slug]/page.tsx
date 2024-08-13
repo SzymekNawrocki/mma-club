@@ -1,85 +1,61 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import Link from "next/link";
+import Image from "next/image";
+import { PageTitle } from "@/components/PageTitle";
+import { Button } from "@/components/ui/button";
 
-interface BlogPost {
-  title: string;
-  body: {
-    text: string;
-  };
-  image1: {
-    url: string;
-  } | null;
-  image2: {
-    url: string;
-  } | null;
-  image3: {
-    url: string;
-  } | null;
-}
-
+// Funkcja do pobrania zawartości pojedynczego postu blogowego na podstawie slugu
 async function getBlogPost(slug: string) {
   const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT as string, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       query: `query BlogPost($slug: String!) {
-        blog(where: {slug: $slug}) {
+        blogPost(where: {slug: $slug}) {
           title
-          body {
-            text
-          }
-          image1 {
-            url
-          }
-          image2 {
-            url
-          }
-          image3 {
+          slug
+          text
+          image {
             url
           }
         }
       }`,
-      variables: {
-        slug,
-      },
+      variables: { slug },
     }),
   });
+
   const json = await response.json();
-  return json.data.blog;
+  return json.data.blogPost;
 }
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post: BlogPost = await getBlogPost(params.slug);
-  return (
-    <div className="m-12 text-center py-8">
-      <h1 className="text-5xl font-bold mb-4 mt-11">{post.title}</h1>
-      <p className="text-lg mb-8">{post.body.text}</p>
-      {post.image1?.url && (
-        <div className="mb-8">
-          <Image src={post.image1.url} alt="Image 1" width={800} height={600} />
-        </div>
-      )}
-      {post.image2?.url && (
-        <div className="mb-8">
-          <Image src={post.image2.url} alt="Image 2" width={800} height={600} />
-        </div>
-      )}
-      {post.image3?.url && (
-        <div className="mb-8">
-          <Image src={post.image3.url} alt="Image 3" width={800} height={600} />
-        </div>
-      )}
-      <p>
-        <Button>
+  const blogPost = await getBlogPost(params.slug);
 
+  return (
+    <div className="flex flex-col items-center m-12 p-8  rounded-lg max-w-4xl mx-auto ">
+   <PageTitle>{blogPost.title}</PageTitle> 
+      <div className="mb-8">
+        {blogPost.image && (
+          <Image
+            src={blogPost.image.url}
+            alt="Post Image"
+            width={300} 
+            height={450} 
+            className="rounded-lg shadow-md"
+          />
+        )}
+      </div>
+      <div
+        className="text-lg mb-8 prose max-w-full"
+        dangerouslySetInnerHTML={{ __html: blogPost.text }}
+      />
+      <Button>
         <Link href="/blog">
           Wróć do Bloga
         </Link>
-        </Button>
-      </p>
+      </Button>
+      
     </div>
   );
 }
