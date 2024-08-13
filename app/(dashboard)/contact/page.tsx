@@ -1,10 +1,5 @@
 'use client'
-
-
-
 import { PageTitle } from "@/components/PageTitle";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import Form from '@/components/Form'
 import Questions from "@/components/Questions";
 
