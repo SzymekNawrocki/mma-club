@@ -3,7 +3,6 @@ import Image from "next/image";
 import { PageTitle } from "@/components/PageTitle";
 import { Button } from "@/components/ui/button";
 
-// Funkcja do pobrania zawartości pojedynczego postu blogowego na podstawie slugu
 async function getBlogPost(slug: string) {
   const response = await fetch(process.env.NEXT_HYGRAPH_ENDPOINT as string, {
     method: "POST",
@@ -14,7 +13,7 @@ async function getBlogPost(slug: string) {
       query: `query BlogPost($slug: String!) {
         blogPost(where: {slug: $slug}) {
           title
-          slug
+          slug  
           text
           image {
             url
@@ -55,7 +54,6 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           Wróć do Bloga
         </Link>
       </Button>
-      
     </div>
   );
 }

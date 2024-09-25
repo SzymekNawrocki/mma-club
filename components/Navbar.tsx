@@ -8,6 +8,7 @@ import { DarkModeToggle } from './DarkModeToggle';
 import Image from 'next/image'
 import { Button } from '@/components/ui/button';
 import { FaLock } from 'react-icons/fa';
+import { useAuth } from "@clerk/nextjs";
 
 interface NavLinkProps {
   href: string;
@@ -50,6 +51,14 @@ const Navbar = () => {
     };
   }, []);
   
+  const { isSignedIn } = useAuth();
+
+  const handleRedirect = () => {
+    if (!isSignedIn) {
+      window.location.href = '/sign-up'; 
+    }
+  };
+
   return (
     <nav className={`bg-accent py-2 w-full fixed top-0 z-50 transition-colors duration-300  ${scrolled ? 'shadow-lg' : ''}`}>
       <div className="max-w-4xl mx-auto flex justify-between items-center px-4">
@@ -82,12 +91,13 @@ const Navbar = () => {
           <NavLink href="/schedule" active={pathname === '/schedule'}>Grafik</NavLink>
           <NavLink href="/contact" active={pathname === '/contact'}>Kontakt</NavLink>
           <NavLink href="/blog" active={pathname === '/blog'}>Blog</NavLink>
-          <Button>
-          <NavLink href="/account" active={pathname === '/account'}>Konto</NavLink>
-          <FaLock/>
-          </Button>
+          <Button onClick={handleRedirect}>
+            <NavLink href={isSignedIn ? "/account" : "/sign-up"} active={pathname === '/account'}>
+              Konto
+            </NavLink>
+                  <FaLock />
+            </Button>
           <UserButton/>
-          
         </div>
       </div>
       <AnimatePresence>

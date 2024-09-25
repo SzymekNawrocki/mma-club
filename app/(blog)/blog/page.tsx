@@ -26,13 +26,13 @@ async function getBlogPosts() {
 export default async function Home() {
   const blogPosts = await getBlogPosts();
   return (
-    <div className="m-12 py-11">
+    <div className="m-12 py-11 ">
       <PageTitle>Blog</PageTitle>
 
-      <ul className="mb-8 text-center">
+      <ul className="mb-8 text-center gap-4 ">
         {blogPosts.map((post: any) => (
-          <li key={post.slug}>
-            <Link href={`/blog/${post.slug}`}>
+          <li className="" key={post.slug}>
+            <Link className='mt-4 mb-4 p-4 ' href={`/blog/${post.slug}`}>
                 <Card>
                   <CardHeader>
                     {post.title}

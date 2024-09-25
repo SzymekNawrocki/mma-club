@@ -1,5 +1,6 @@
 import { PageTitle } from "@/components/PageTitle";
 import  Konto  from '@/components/Konto';
+import { SignedOut, RedirectToSignIn } from "@clerk/nextjs";
 
 export default function Account() {
     return (
