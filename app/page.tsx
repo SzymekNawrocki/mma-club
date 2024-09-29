@@ -26,6 +26,7 @@ export default function Home() {
     <div className="relative h-screen overflow-hidden">
       <ImagesSlider className="absolute inset-0 z-0" images={images}>
     <p className="mt-2">Enjoy the slideshow</p>
+
 </ImagesSlider>
       <div className="relative z-10 flex flex-col justify-center items-center h-full w-full">
         <motion.div
@@ -53,14 +54,11 @@ export default function Home() {
           height={100}
           className="rounded-full justify-center items-center mb-5"
         />
-            <Button>
-                  <Link href="/sign-in">Zaloguj się</Link>
-            </Button>
-            <Button>
-              <Link href="/sign-up">Zarejestruj się</Link></Button>
-            <Button>
-                <Link href="/dashboard">Przeglądaj stronę</Link>
-            </Button>
+        
+              <Link className="text-center" href="/sign-in"><Button>Zaloguj się</Button></Link>
+              <Link className="text-center" href="/sign-up"><Button>Zarejestruj się</Button></Link>
+              <Link className="text-center" href="/dashboard"><Button>Przeglądaj stronę </Button></Link>
+              
               </CardHeader>
             </Card>
           </div>
