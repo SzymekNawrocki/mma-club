@@ -27,20 +27,9 @@ const menuItems: IMenuItem[] = [
   },
 ];
 
-export default async function DashboardPage() {
-  const getCurrentDate = () => {
-    const formattedDate = format(new Date(), "EEEE, d MMMM yyyy", {
-      locale: pl,
-    });
-
-    return `${formattedDate.slice(0, 1).toLocaleUpperCase()}${formattedDate.slice(1)}`;
-  };
-
+export default function TeamComponent() {
   return (
     <>
-      <header>
-        
-      </header>
       <div>
         <div className="mt-4 flex flex-col justify-between gap-4 lg:mt-8 lg:flex-row ">
           {menuItems.map((el: IMenuItem, index: number) => (

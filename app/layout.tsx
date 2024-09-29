@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider, } from "@clerk/nextjs";
+import { ClerkProvider, SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/ui/theme-provider"
 import { plPL } from '@clerk/localizations'
 
@@ -27,7 +27,7 @@ export default function RootLayout({
           colorText: "black"
         }
       }}
-      afterSignOutUrl={'/dashboard'}
+      afterSignOutUrl={'/'}
       >
     <html lang="en">
         <body className="bg-background">
