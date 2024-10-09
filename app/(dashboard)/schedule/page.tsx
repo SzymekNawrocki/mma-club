@@ -6,6 +6,7 @@ import {  SectionTitle  } from "@/components/SectionTitle"
 import MMAIcons from "@/components/MixedMartialArts";
 import { Card, CardHeader } from "@/components/ui/card";
 import Pricing from "@/components/Pricing";
+import ScheduleArray from "@/components/ScheduleArray";
 
 export default function Schedule () {
   return (
@@ -13,17 +14,10 @@ export default function Schedule () {
     <PageTitle>Grafik Zajęć</PageTitle>
       <div className="mb-8">
       <div className="max-w-5xl mx-auto px-8 py-11 mt-11 mb-11">
-      <Image
-          src="/planzajecxxl.png"
-          alt="Plan zajęć"
-          width={1500}
-          height={853}
-          className="mb-32 mt-11 rounded-2xl "
-        />
+      <ScheduleArray/>
         <SectionTitle>Co powinieneś mieć na pierwszy trening</SectionTitle>
       <Card>
     <CardHeader>
-
         <MMAIcons/>
     </CardHeader>
       </Card>
@@ -36,7 +30,7 @@ export default function Schedule () {
   );
 };
 
-const projects = [
+const prizing = [
   {
     title: "Pojedynczy trening ",
     description: "30 zł",

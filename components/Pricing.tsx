@@ -3,60 +3,57 @@ import { Button } from './ui/button';
 
 const pricingOptions = [
   {
-    title: 'Basic Pass',
+    title: 'Pojedynczy Trening',
     price: '10 zł',
-    description: 'Access to basic facilities',
-    link: '/buy/basic-pass',
+    link: '/buy/',
   },
   {
-    title: 'Standard Pass',
+    title: '2 treningi tygodniowo',
     price: '20 zł',
-    description: 'Access to all standard facilities',
-    link: '/buy/standard-pass',
+    link: '/buy',
   },
   {
-    title: 'Premium Pass',
+    title: '3-4 treningi tygodniowo',
     price: '30 zł',
-    description: 'All-inclusive access',
-    link: '/buy/premium-pass',
+    link: '/buy/',
   },
   {
-    title: 'Monthly Pass',
+    title: 'Karnet Open',
     price: '50 zł',
-    description: 'Unlimited access for a month',
-    link: '/buy/monthly-pass',
+    link: '/buy/',
   },
   {
-    title: 'Yearly Pass',
-    price: '500 zł',
-    description: 'Unlimited access for a year',
-    link: '/buy/yearly-pass',
+    title: 'Karnet Trening dla Kobiet',
+    price: '50 zł',
+    link: '/buy',
   },
   {
-    title: 'Family Pass',
-    price: '$100',
-    description: 'Access for the whole family',
-    link: '/buy/family-pass',
+    title: 'Karnet dla dzieci poniżej 12 roku życia',
+    price: '100 zł',
+    link: '/buy',
   },
 ];
 
 export default function Pricing() {
   return (
     <div className="bg-background py-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
-        {pricingOptions.map((option, index) => (
-          <div key={index} className="bg-accent p-6 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4 text-foreground">{option.title}</h2>
-            <p className="text-xl font-semibold mb-4 text-primary">{option.price}</p>
-            <p className="text-primary mb-6">{option.description}</p>
-            <Link href={option.link}>
-            <Button>
-                Kup Karnet
-            </Button>
-            </Link>
-          </div>
-        ))}
+  <div className="mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 text-center">
+    {pricingOptions.map((option, index) => (
+      <div key={index} className="bg-accent p-6 rounded-lg border flex flex-col justify-between">
+        <div className="flex-col mb-4">
+          <h2 className="text-xl font-bold text-foreground">{option.title}</h2>
+          <p className="text-xl text-primary mt-2">{option.price}</p> 
+        </div>
+        <Link href={option.link}>
+          <Button className="mt-auto">
+            Kup Karnet
+          </Button>
+        </Link>
       </div>
-    </div>
+    ))}
+  </div>
+</div>
+
+
   );
 }

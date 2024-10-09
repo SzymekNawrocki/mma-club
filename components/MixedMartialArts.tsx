@@ -1,4 +1,3 @@
-// components/MMAIcons.js
 import React from 'react';
 import { GiBoxingGlove, GiBlackBelt, GiBoxingRing } from 'react-icons/gi';
 

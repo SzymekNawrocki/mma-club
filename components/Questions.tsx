@@ -34,7 +34,7 @@ export default function Questions() {
     </AccordionContent>
   </AccordionItem>
   <AccordionItem value="item-5">
-    <AccordionTrigger>Czy muszę przygotować się fizycznie zanim przyjdę na pierwszy trening?</AccordionTrigger>
+    <AccordionTrigger>Czy muszę przygotować się fizycznie przed rozpoczęciem?</AccordionTrigger>
     <AccordionContent>
     Treningi dla początkujących może podjąć każdy, bez względu na jego obecną formę fizyczną. Treningi są grupowe jednak intensywność wykonywania ćwiczeń jest indywidualna.
     </AccordionContent>

@@ -56,15 +56,6 @@ const Navbar = () => {
         Home
       </Link>
       <Link
-        href="/about"
-        className={`text-lg px-4 py-2 rounded-full ${
-          pathname === "/about" ? "font-bold" : "font-normal"
-        } transition-colors duration-200`}
-        onClick={closeNavbar}
-      >
-        Team
-      </Link>
-      <Link
         href="/schedule"
         className={`text-lg px-4 py-2 rounded-full ${
           pathname === "/schedule" ? "font-bold" : "font-normal"
@@ -116,23 +107,16 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center py-2 px-4">
-        {/* Logo - zawsze widoczne na dużych ekranach */}
         <Link href="/" className="flex items-center">
           <Image
             src="/Logo.png"
-            alt="Plan zajęć"
+            alt="Logo klubu MMA"
             width={50}
             height={50}
             className="rounded-full"
           />
         </Link>
-
-        {/* Przełącznik trybu ciemnego */}
         <DarkModeToggle />
-
-        {/* UserButton widoczny tylko na dużych ekranach */}
-      
-        {/* Menu mobilne */}
         <div className="md:hidden">
           <button onClick={toggleNavbar} className="focus:outline-none">
             {isOpen ? (
@@ -168,12 +152,8 @@ const Navbar = () => {
             )}
           </button>
         </div>
-
-        {/* Linki nawigacyjne - tylko na dużych ekranach */}
         <div className="hidden md:flex items-center gap-5">{navLinks}</div>
       </div>
-
-      {/* Menu mobilne (otwarte) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -183,7 +163,6 @@ const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 bg-accent z-40 flex flex-col items-center justify-start md:hidden pt-16 px-4"
           >
-            {/* Logo w rozwijanym menu mobilnym */}
             <Link href="/" className="mb-8" onClick={closeNavbar}>
               <Image
                 src="/Logo.png"
@@ -193,16 +172,10 @@ const Navbar = () => {
                 className="rounded-full"
               />
             </Link>
-
-            {/* Przycisk UserButton umieszczony po lewej stronie w menu mobilnym */}
             <div className="absolute top-4 left-4">
               <UserButton />
             </div>
-
-            {/* Linki nawigacyjne w menu mobilnym */}
             <div className="flex flex-col items-center gap-5">{navLinks}</div>
-
-            {/* Przycisk do zamknięcia */}
             <button
               onClick={toggleNavbar}
               className="absolute top-4 right-4 text-white focus:outline-none"
